@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link, withRouter } from 'react-router-dom';
 import { Layout, Menu, Breadcrumb } from 'antd';
 
 const { Header, Content, Footer } = Layout;
@@ -22,15 +22,15 @@ const CustomLayout = (props) => {
                   </Header>
                   <Content style={{ padding: '0 50px' }}>
                     <Breadcrumb style={{ margin: '16px 0' }}>
-                      <Breadcrumb.Item>Home</Breadcrumb.Item>
-                      <Breadcrumb.Item>List</Breadcrumb.Item>
-                      <Breadcrumb.Item>App</Breadcrumb.Item>
+                      <Breadcrumb.Item><Link to="/">Home</Link></Breadcrumb.Item>
+                      <Breadcrumb.Item><Link to="/">List</Link></Breadcrumb.Item>
                     </Breadcrumb>
                     <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
                     {props.children}
                     </div>
                   </Content>
-                  <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+                  <Footer style={{ textAlign: 'center' }}>The Busara Center for Behavioral Economics API
+ Created by Brendah Khalifwa</Footer>
                 </Layout>
           );
 

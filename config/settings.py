@@ -39,12 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts.apps.AccountsConfig',
     'bank.apps.BankConfig',
+    'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -135,7 +137,7 @@ AUTH_USER_MODEL = 'accounts.User'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
+       # 'rest_framework.permissions.IsAuthenticated',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
@@ -145,7 +147,9 @@ REST_FRAMEWORK = {
 }
 
 REST_USE_JWT = True
-
+'''
 CORS_ORIGIN_WHITELIST = (
     'http://127.0.0.1:3000',
 )
+'''
+CORS_ORIGIN_ALLOW_ALL =True
