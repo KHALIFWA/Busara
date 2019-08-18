@@ -1,24 +1,26 @@
 import React from "react";
 import axios from "axios";
-import { Button, Card } from "antd";
+import { Card } from "antd";
 class TransactionDetail extends React.Component {
   state = {
     transaction: {}
   };
 
-
-
-  componentDidMount() {
+    componentWillReceiveProps(newProps) {
+      if (newProps.token) {
+        axios.defaults.headers = {
+        "Content-Type" : "application/json",
+        Authorization : newProps.token
+      }
        const transactionID = this.props.match.params.transactionID;
        
-      axios.get(`http://127.0.0.1:8000/bank/api/${transactionID}`).then(res => {
-      this.setState({
-        transaction: res.data
-      });
-      
-    });
-        }
-
+       axios.get(`http://127.0.0.1:8000/bank/api/${transactionID}`).then(res => {
+        this.setState({
+          article: res.data
+        });
+      });    
+      }
+    }
   render() {
     return (
       <div>

@@ -9,9 +9,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
-    """
-    Bifrost user writable nested serializer
-    """
+    
     profile = UserProfileSerializer(required=True)
 
     class Meta:

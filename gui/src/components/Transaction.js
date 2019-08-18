@@ -41,7 +41,7 @@ const Transactions = (props) => {
                   >
                     <List.Item.Meta
                       avatar={<Avatar src={item.avatar} />}
-                      title={<a href={`/${item.id}`}>{item.transaction_type} : Kshs{item.transaction_amount}</a>}
+                      title={<a href={`/transactions/${item.id}`}>{item.transaction_type} : Kshs{item.transaction_amount}</a>}
                       description={item.transaction_description}
                       
                     />

@@ -2,10 +2,7 @@
 from rest_framework import permissions
 from rest_framework.generics import (
     ListAPIView,
-    RetrieveAPIView,
-    CreateAPIView,
-    DestroyAPIView,
-    UpdateAPIView
+    RetrieveAPIView
 )
 from bank.models import TransactionHistory
 from .serializers import TransactionSerializer
