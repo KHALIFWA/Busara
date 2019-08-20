@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Transactions from "../components/Transaction";
 
 
-class TransactionList extends React.Component {
+class SavingList extends React.Component {
 	  state = {
 		    transactions: []
 		  };
@@ -15,7 +15,7 @@ class TransactionList extends React.Component {
 		      "Content-Type" : "application/json",
 		      Authorization : newProps.token
 		    }
-		    	axios.get(`http://127.0.0.1:8000/bank/api/transactions/${newProps.user}`).then(res => {
+		    	axios.get(`http://127.0.0.1:8000/bank/api/savings/${newProps.user}`).then(res => {
 			      this.setState({
 			        transactions: res.data
 			      });
@@ -25,10 +25,7 @@ class TransactionList extends React.Component {
 		  }
 	  render() {
 	    return (
-	    <div>
           <Transactions data={this.state.transactions}/>
-          
-         </div>
 	    );
 	  }
 	
@@ -40,4 +37,4 @@ const mapStateToProps = state => {
     user: state.user
   }
 }
-export default connect(mapStateToProps) (TransactionList);
+export default connect(mapStateToProps) (SavingList);

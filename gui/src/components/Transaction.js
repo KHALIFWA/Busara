@@ -10,8 +10,14 @@ const IconText = ({ type, text }) => (
 );
 
 const Transactions = (props) => {
-  
+
         return (
+              <div>
+              <div>
+            
+             props.data.credits.transaction_credits
+
+              </div>
               <List
                 itemLayout="vertical"
                 size="large"
@@ -21,34 +27,24 @@ const Transactions = (props) => {
                   },
                   pageSize: 3,
                 }}
-                dataSource={props.data}
-     
+                dataSource={props.data.objects}
+                
                 renderItem={item => (
+     
                   <List.Item
-                    key={item.title}
-                    actions={[
-                      <IconText type="star-o" text="156" key="list-vertical-star-o" />,
-                      <IconText type="like-o" text="156" key="list-vertical-like-o" />,
-                      <IconText type="message" text="2" key="list-vertical-message" />,
-                    ]}
-                    extra={
-                      <img
-                        width={272}
-                        alt="logo"
-                        src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
-                      />
-                    }
-                  >
+                    key={item.title}>
+
                     <List.Item.Meta
                       avatar={<Avatar src={item.avatar} />}
-                      title={<a href={`/transactions/${item.id}`}>{item.transaction_type} : Kshs{item.transaction_amount}</a>}
-                      description={item.transaction_description}
-                      
+                      title={<a href={`/transactions/${item.id}`}>{item.transaction_type} : Kshs{item.transaction_amount} Transaction Method({item.transaction_method})</a>}
+                      description={item.bank_type}  
                     />
-                    {item.content}
+                    {item.transaction_description}
                   </List.Item>
+
                 )}
               />
+            </div>
       )
 }
 
